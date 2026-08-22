@@ -4,16 +4,18 @@ theme parts (style/header/footer/GA+AdSense snippet), mirroring the us-paycheck-
 krcalctools project structure (see site-deployment-handoff.md).
 
 GA4 is wired in (property "usstatewages" under the same GA account as the other sites,
-measurement ID G-RGNKRT8FK4). TODO before going live: replace ADSENSE_CLIENT's ca-pub-XXXX
-once this site's AdSense site is created (separate registration from uspaycheckcalc), add the
-Search Console / Naver verification meta tags once those properties are created, and replace
-CONTACT_EMAIL with a real contact address.
+measurement ID G-RGNKRT8FK4). AdSense is wired in too - same publisher account as
+uspaycheckcalc/krcalctools (AdSense ca-pub- IDs are per-publisher, not per-site; this site
+was added as a new site under the existing account, no new registration needed). Site is
+pending AdSense's review after the code snippet went live. TODO before going live: add
+Search Console / Naver verification meta tags if needed, and replace CONTACT_EMAIL with a
+real contact address.
 """
 
 SITE_NAME = "US State Minimum Wage Tracker"
 CONTACT_EMAIL = "contact@yourdomain.com"
 
-ADSENSE_CLIENT = "ca-pub-XXXXXXXXXXXXXXXX"
+ADSENSE_CLIENT = "ca-pub-5607384951754093"
 
 GA_SNIPPET = f"""<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGNKRT8FK4"></script>
