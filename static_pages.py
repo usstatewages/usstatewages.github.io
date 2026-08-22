@@ -7,13 +7,11 @@ GA4 is wired in (property "usstatewages" under the same GA account as the other 
 measurement ID G-RGNKRT8FK4). AdSense is wired in too - same publisher account as
 uspaycheckcalc/krcalctools (AdSense ca-pub- IDs are per-publisher, not per-site; this site
 was added as a new site under the existing account, no new registration needed). Site is
-pending AdSense's review after the code snippet went live. TODO before going live: add
-Search Console / Naver verification meta tags if needed, and replace CONTACT_EMAIL with a
-real contact address.
+pending AdSense's review after the code snippet went live.
 """
 
 SITE_NAME = "US State Minimum Wage Tracker"
-CONTACT_EMAIL = "contact@yourdomain.com"
+CONTACT_EMAIL = "usstatewages@gmail.com"
 
 ADSENSE_CLIENT = "ca-pub-5607384951754093"
 
