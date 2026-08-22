@@ -122,12 +122,11 @@ def index_html():
   {EFFECTIVE_DATE} highly likely. As of today, {confirmed_count} of them have a confirmed dollar
   figure; the rest calculate and publish their exact 2027 rate later in the year (typically
   September through December).</p>
-  {us_map_svg()}
   <table>
     <tr><th>State</th><th>2026 rate</th><th>2027 rate</th><th>Status</th></tr>
     {rows}
   </table>
-
+  {us_map_svg()}
   <div class="explain">
     <h2>Why some states show "Pending"</h2>
     <p>Most states with inflation-indexed minimum wages calculate the new rate from a 12-month
