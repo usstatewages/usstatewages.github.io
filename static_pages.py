@@ -84,6 +84,17 @@ SITE_STYLE = """
   .badge.confirmed { background: #dcfce7; color: #166534; }
   .badge.pending { background: var(--warn-bg); color: var(--warn-text); }
 
+  .us-map-wrap { margin: 20px 0; }
+  .us-map { width: 100%; height: auto; display: block; }
+  .us-map a rect { transition: opacity 0.15s; }
+  .us-map a:hover rect { opacity: 0.8; }
+  .map-legend {
+    display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px;
+    font-size: 12px; color: var(--muted);
+  }
+  .map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .map-swatch { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+
   table.rule, table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
   table.rule th, table.rule td, table th, table td { border: 1px solid var(--border); padding: 9px 10px; text-align: left; }
   table.rule td.num, table td.num { text-align: right; }

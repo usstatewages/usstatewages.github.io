@@ -10,7 +10,7 @@ mechanism and an honest "not yet announced" status - never a guessed number.
 """
 import os
 
-from minwage_data import STATES, STATE_ORDER, FULL_TIME_HOURS, HISTORY, HISTORY_CHART_MAX
+from minwage_data import STATES, STATE_ORDER, FULL_TIME_HOURS, HISTORY, HISTORY_CHART_MAX, MAP_STATES
 from static_pages import about_html, privacy_html, contact_html, SITE_NAME, page_shell
 
 OUTPUT_DIR = "docs"
@@ -55,6 +55,53 @@ def new_rate_cell(state):
     return "Pending"
 
 
+MAP_TILE = 40
+MAP_GAP = 4
+MAP_PITCH = MAP_TILE + MAP_GAP
+MAP_CONFIRMED_COLOR = "#16a34a"
+MAP_PENDING_COLOR = "#d97706"
+MAP_UNTRACKED_COLOR = "#e2e5eb"
+
+
+def us_map_svg():
+    tiles = []
+    for key, m in MAP_STATES.items():
+        x, y = m["col"] * MAP_PITCH, m["row"] * MAP_PITCH
+        state = STATES.get(key)
+        if state:
+            fill = MAP_CONFIRMED_COLOR if state["status"] == "confirmed" else MAP_PENDING_COLOR
+            text_fill = "#ffffff"
+            status_label = "confirmed 2027 rate" if state["status"] == "confirmed" else "increase expected, rate pending"
+            open_tag, close_tag = f'<a href="{detail_slug(key)}">', "</a>"
+        else:
+            fill, text_fill = MAP_UNTRACKED_COLOR, "#6b7280"
+            status_label = "no January 2027 increase expected"
+            open_tag, close_tag = "", ""
+
+        tiles.append(
+            f'{open_tag}<g><title>{m["name"]}: {status_label}</title>'
+            f'<rect x="{x}" y="{y}" width="{MAP_TILE}" height="{MAP_TILE}" rx="6" fill="{fill}"></rect>'
+            f'<text x="{x + MAP_TILE / 2:.0f}" y="{y + MAP_TILE / 2 + 4:.0f}" text-anchor="middle" '
+            f'font-size="11" font-weight="700" fill="{text_fill}">{m["abbr"]}</text></g>{close_tag}'
+        )
+
+    width = (max(m["col"] for m in MAP_STATES.values()) + 1) * MAP_PITCH - MAP_GAP
+    height = (max(m["row"] for m in MAP_STATES.values()) + 1) * MAP_PITCH - MAP_GAP
+
+    return f"""
+  <div class="us-map-wrap">
+    <svg viewBox="0 0 {width} {height}" class="us-map" xmlns="http://www.w3.org/2000/svg">
+      {''.join(tiles)}
+    </svg>
+    <div class="map-legend">
+      <span><i class="map-swatch" style="background:{MAP_CONFIRMED_COLOR}"></i> Confirmed 2027 rate</span>
+      <span><i class="map-swatch" style="background:{MAP_PENDING_COLOR}"></i> Increase expected, rate pending</span>
+      <span><i class="map-swatch" style="background:{MAP_UNTRACKED_COLOR}"></i> No Jan 2027 increase expected</span>
+    </div>
+  </div>
+"""
+
+
 def index_html():
     rows = "\n".join(
         f"""<tr>
@@ -75,7 +122,7 @@ def index_html():
   {EFFECTIVE_DATE} highly likely. As of today, {confirmed_count} of them have a confirmed dollar
   figure; the rest calculate and publish their exact 2027 rate later in the year (typically
   September through December).</p>
-
+  {us_map_svg()}
   <table>
     <tr><th>State</th><th>2026 rate</th><th>2027 rate</th><th>Status</th></tr>
     {rows}

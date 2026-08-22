@@ -223,3 +223,64 @@ HISTORY = {
 }
 
 HISTORY_CHART_MAX = 20.00
+
+"""
+Tile-grid layout for the US map on the hub page: every state gets a same-size square tile
+positioned by approximate region (col, row) rather than exact geographic coordinates - the same
+simplified-cartogram approach used by NPR/538-style "square state" maps, chosen because several
+states this site tracks (RI, CT, NJ, DE) are geographically tiny and unreadable on a true map.
+Not all 50 states are in STATES/HISTORY above (only the 17 with a Jan-2027-cycle law) - MAP_STATES
+covers all 50 so the map reads as the whole country, with untracked states shown in neutral gray.
+"""
+MAP_STATES = {
+    "alabama": {"abbr": "AL", "name": "Alabama", "col": 7, "row": 6},
+    "alaska": {"abbr": "AK", "name": "Alaska", "col": 0, "row": 0},
+    "arizona": {"abbr": "AZ", "name": "Arizona", "col": 2, "row": 4},
+    "arkansas": {"abbr": "AR", "name": "Arkansas", "col": 5, "row": 5},
+    "california": {"abbr": "CA", "name": "California", "col": 1, "row": 3},
+    "colorado": {"abbr": "CO", "name": "Colorado", "col": 3, "row": 3},
+    "connecticut": {"abbr": "CT", "name": "Connecticut", "col": 11, "row": 3},
+    "delaware": {"abbr": "DE", "name": "Delaware", "col": 10, "row": 4},
+    "florida": {"abbr": "FL", "name": "Florida", "col": 8, "row": 7},
+    "georgia": {"abbr": "GA", "name": "Georgia", "col": 8, "row": 6},
+    "hawaii": {"abbr": "HI", "name": "Hawaii", "col": 0, "row": 4},
+    "idaho": {"abbr": "ID", "name": "Idaho", "col": 2, "row": 1},
+    "illinois": {"abbr": "IL", "name": "Illinois", "col": 6, "row": 3},
+    "indiana": {"abbr": "IN", "name": "Indiana", "col": 7, "row": 3},
+    "iowa": {"abbr": "IA", "name": "Iowa", "col": 5, "row": 3},
+    "kansas": {"abbr": "KS", "name": "Kansas", "col": 4, "row": 4},
+    "kentucky": {"abbr": "KY", "name": "Kentucky", "col": 6, "row": 4},
+    "louisiana": {"abbr": "LA", "name": "Louisiana", "col": 5, "row": 6},
+    "maine": {"abbr": "ME", "name": "Maine", "col": 11, "row": 0},
+    "maryland": {"abbr": "MD", "name": "Maryland", "col": 9, "row": 4},
+    "massachusetts": {"abbr": "MA", "name": "Massachusetts", "col": 10, "row": 2},
+    "michigan": {"abbr": "MI", "name": "Michigan", "col": 6, "row": 2},
+    "minnesota": {"abbr": "MN", "name": "Minnesota", "col": 5, "row": 1},
+    "mississippi": {"abbr": "MS", "name": "Mississippi", "col": 6, "row": 6},
+    "missouri": {"abbr": "MO", "name": "Missouri", "col": 5, "row": 4},
+    "montana": {"abbr": "MT", "name": "Montana", "col": 3, "row": 1},
+    "nebraska": {"abbr": "NE", "name": "Nebraska", "col": 4, "row": 3},
+    "nevada": {"abbr": "NV", "name": "Nevada", "col": 2, "row": 2},
+    "new-hampshire": {"abbr": "NH", "name": "New Hampshire", "col": 10, "row": 1},
+    "new-jersey": {"abbr": "NJ", "name": "New Jersey", "col": 10, "row": 3},
+    "new-mexico": {"abbr": "NM", "name": "New Mexico", "col": 3, "row": 4},
+    "new-york": {"abbr": "NY", "name": "New York", "col": 9, "row": 2},
+    "north-carolina": {"abbr": "NC", "name": "North Carolina", "col": 7, "row": 5},
+    "north-dakota": {"abbr": "ND", "name": "North Dakota", "col": 4, "row": 1},
+    "ohio": {"abbr": "OH", "name": "Ohio", "col": 8, "row": 3},
+    "oklahoma": {"abbr": "OK", "name": "Oklahoma", "col": 4, "row": 5},
+    "oregon": {"abbr": "OR", "name": "Oregon", "col": 1, "row": 2},
+    "pennsylvania": {"abbr": "PA", "name": "Pennsylvania", "col": 9, "row": 3},
+    "rhode-island": {"abbr": "RI", "name": "Rhode Island", "col": 11, "row": 4},
+    "south-carolina": {"abbr": "SC", "name": "South Carolina", "col": 8, "row": 5},
+    "south-dakota": {"abbr": "SD", "name": "South Dakota", "col": 4, "row": 2},
+    "tennessee": {"abbr": "TN", "name": "Tennessee", "col": 6, "row": 5},
+    "texas": {"abbr": "TX", "name": "Texas", "col": 4, "row": 6},
+    "utah": {"abbr": "UT", "name": "Utah", "col": 2, "row": 3},
+    "vermont": {"abbr": "VT", "name": "Vermont", "col": 9, "row": 1},
+    "virginia": {"abbr": "VA", "name": "Virginia", "col": 8, "row": 4},
+    "washington": {"abbr": "WA", "name": "Washington", "col": 1, "row": 1},
+    "west-virginia": {"abbr": "WV", "name": "West Virginia", "col": 7, "row": 4},
+    "wisconsin": {"abbr": "WI", "name": "Wisconsin", "col": 5, "row": 2},
+    "wyoming": {"abbr": "WY", "name": "Wyoming", "col": 3, "row": 2},
+}
