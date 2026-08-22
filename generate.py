@@ -10,7 +10,7 @@ mechanism and an honest "not yet announced" status - never a guessed number.
 """
 import os
 
-from minwage_data import STATES, STATE_ORDER, FULL_TIME_HOURS
+from minwage_data import STATES, STATE_ORDER, FULL_TIME_HOURS, HISTORY, HISTORY_CHART_MAX
 from static_pages import about_html, privacy_html, contact_html, SITE_NAME, page_shell
 
 OUTPUT_DIR = "docs"
@@ -103,6 +103,64 @@ def index_html():
     )
 
 
+def history_html(state_key):
+    state = STATES[state_key]
+    rows = "\n".join(
+        f"""<div class="history-row{' current' if year == 2026 else ''}">
+      <span class="history-year">{year}</span>
+      <div class="history-bar-track"><div class="history-bar" style="width: {rate / HISTORY_CHART_MAX * 100:.1f}%"></div></div>
+      <span class="history-value">{fmt_money(rate)}</span>
+    </div>"""
+        for year, rate in HISTORY[state_key]
+    )
+    return f"""
+  <div class="explain">
+    <h2>{state['name']}'s minimum wage, last 5 years</h2>
+    <div class="history-chart">
+    {rows}
+    </div>
+    <p class="source">January 1 rate each year. Sources: U.S. Dept. of Labor historical minimum wage table (2022-2024), Economic Policy Institute (2025), U.S. Dept. of Labor current table (2026).</p>
+  </div>"""
+
+
+def faq_html(state_key):
+    state = STATES[state_key]
+    if state["status"] == "confirmed":
+        rate_q = f"How was {state['name']}'s 2027 rate calculated?"
+        rate_a = f"{state['mechanism']}. {state['name']}'s minimum wage is rising from {fmt_money(state['current_2026'])} to {fmt_money(state['new_2027'])} per hour."
+    else:
+        rate_q = f"Why isn't {state['name']}'s exact 2027 rate available yet?"
+        rate_a = f"{state['mechanism']}. States using this kind of formula typically calculate and publish the exact next-year figure between September and December of the prior year - {state['name']} hasn't published it yet, so this page shows the mechanism instead of a guessed number."
+
+    items = [
+        (rate_q, rate_a),
+        (
+            "Does this apply to tipped workers?",
+            f"Not necessarily. Many states, including {state['name']}, let employers pay tipped workers a lower direct cash wage as long as tips bring total pay up to at least the full minimum wage. The rate on this page is the standard rate for non-tipped workers - check your state labor department for the tipped cash wage.",
+        ),
+        (
+            "Is this different from the federal minimum wage?",
+            f"Yes. The federal minimum wage has been $7.25/hour since 2009. {state['name']}'s minimum wage is higher, and employers covered by both laws must pay the higher of the two.",
+        ),
+        (
+            "When does the new rate take effect?",
+            f"{EFFECTIVE_DATE}, alongside minimum wage increases in the other states tracked on this site.",
+        ),
+    ]
+    items_html = "\n".join(
+        f"""<details>
+      <summary>{q}</summary>
+      <p>{a}</p>
+    </details>"""
+        for q, a in items
+    )
+    return f"""
+  <div class="faq">
+    <h2>Frequently asked questions</h2>
+    {items_html}
+  </div>"""
+
+
 def detail_html(state_key):
     state = STATES[state_key]
     current = state["current_2026"]
@@ -161,6 +219,8 @@ def detail_html(state_key):
   </div>
 
   <p class="source">Source: <a href="{state['source_url']}" target="_blank" rel="noopener">{state['source_name']}</a></p>
+  {history_html(state_key)}
+  {faq_html(state_key)}
 
   <div class="nav"><a href="index.html">&larr; All states</a></div>
 {DISCLAIMER}

@@ -101,6 +101,24 @@ SITE_STYLE = """
   .steps { margin: 12px 0 0; padding-left: 20px; }
   .steps li { margin-bottom: 8px; }
 
+  .history-chart { margin: 14px 0; }
+  .history-row { display: flex; align-items: center; gap: 10px; padding: 5px 0; font-size: 13px; }
+  .history-year { width: 36px; color: var(--muted); flex-shrink: 0; }
+  .history-bar-track { flex: 1; background: #eef0f4; border-radius: 6px; height: 16px; overflow: hidden; }
+  .history-bar { background: var(--primary); height: 100%; border-radius: 6px; opacity: 0.55; }
+  .history-row.current .history-bar { opacity: 1; }
+  .history-value { width: 56px; text-align: right; flex-shrink: 0; }
+  .history-row.current .history-value { font-weight: 700; color: var(--primary); }
+
+  .faq { margin-top: 26px; }
+  .faq h2 { font-size: 15px; margin-bottom: 10px; }
+  .faq details {
+    border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px;
+    margin-bottom: 8px; background: var(--card-bg);
+  }
+  .faq summary { cursor: pointer; font-weight: 600; font-size: 14px; }
+  .faq details p { margin: 10px 0 0; font-size: 13px; color: #374151; line-height: 1.6; }
+
   .nav { margin-top: 24px; font-size: 14px; }
   .nav a { text-decoration: none; }
 

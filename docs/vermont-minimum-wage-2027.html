@@ -71,6 +71,24 @@
   .steps { margin: 12px 0 0; padding-left: 20px; }
   .steps li { margin-bottom: 8px; }
 
+  .history-chart { margin: 14px 0; }
+  .history-row { display: flex; align-items: center; gap: 10px; padding: 5px 0; font-size: 13px; }
+  .history-year { width: 36px; color: var(--muted); flex-shrink: 0; }
+  .history-bar-track { flex: 1; background: #eef0f4; border-radius: 6px; height: 16px; overflow: hidden; }
+  .history-bar { background: var(--primary); height: 100%; border-radius: 6px; opacity: 0.55; }
+  .history-row.current .history-bar { opacity: 1; }
+  .history-value { width: 56px; text-align: right; flex-shrink: 0; }
+  .history-row.current .history-value { font-weight: 700; color: var(--primary); }
+
+  .faq { margin-top: 26px; }
+  .faq h2 { font-size: 15px; margin-bottom: 10px; }
+  .faq details {
+    border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px;
+    margin-bottom: 8px; background: var(--card-bg);
+  }
+  .faq summary { cursor: pointer; font-weight: 600; font-size: 14px; }
+  .faq details p { margin: 10px 0 0; font-size: 13px; color: #374151; line-height: 1.6; }
+
   .nav { margin-top: 24px; font-size: 14px; }
   .nav a { text-decoration: none; }
 
@@ -123,6 +141,58 @@
   </div>
 
   <p class="source">Source: <a href="https://www.dol.gov/agencies/whd/minimum-wage/state" target="_blank" rel="noopener">U.S. Dept. of Labor state minimum wage table</a></p>
+  
+  <div class="explain">
+    <h2>Vermont's minimum wage, last 5 years</h2>
+    <div class="history-chart">
+    <div class="history-row">
+      <span class="history-year">2022</span>
+      <div class="history-bar-track"><div class="history-bar" style="width: 62.8%"></div></div>
+      <span class="history-value">$12.55</span>
+    </div>
+<div class="history-row">
+      <span class="history-year">2023</span>
+      <div class="history-bar-track"><div class="history-bar" style="width: 65.9%"></div></div>
+      <span class="history-value">$13.18</span>
+    </div>
+<div class="history-row">
+      <span class="history-year">2024</span>
+      <div class="history-bar-track"><div class="history-bar" style="width: 68.3%"></div></div>
+      <span class="history-value">$13.67</span>
+    </div>
+<div class="history-row">
+      <span class="history-year">2025</span>
+      <div class="history-bar-track"><div class="history-bar" style="width: 70.0%"></div></div>
+      <span class="history-value">$14.01</span>
+    </div>
+<div class="history-row current">
+      <span class="history-year">2026</span>
+      <div class="history-bar-track"><div class="history-bar" style="width: 72.1%"></div></div>
+      <span class="history-value">$14.42</span>
+    </div>
+    </div>
+    <p class="source">January 1 rate each year. Sources: U.S. Dept. of Labor historical minimum wage table (2022-2024), Economic Policy Institute (2025), U.S. Dept. of Labor current table (2026).</p>
+  </div>
+  
+  <div class="faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>Why isn't Vermont's exact 2027 rate available yet?</summary>
+      <p>Annual inflation adjustment (set formula). States using this kind of formula typically calculate and publish the exact next-year figure between September and December of the prior year - Vermont hasn't published it yet, so this page shows the mechanism instead of a guessed number.</p>
+    </details>
+<details>
+      <summary>Does this apply to tipped workers?</summary>
+      <p>Not necessarily. Many states, including Vermont, let employers pay tipped workers a lower direct cash wage as long as tips bring total pay up to at least the full minimum wage. The rate on this page is the standard rate for non-tipped workers - check your state labor department for the tipped cash wage.</p>
+    </details>
+<details>
+      <summary>Is this different from the federal minimum wage?</summary>
+      <p>Yes. The federal minimum wage has been $7.25/hour since 2009. Vermont's minimum wage is higher, and employers covered by both laws must pay the higher of the two.</p>
+    </details>
+<details>
+      <summary>When does the new rate take effect?</summary>
+      <p>January 1, 2027, alongside minimum wage increases in the other states tracked on this site.</p>
+    </details>
+  </div>
 
   <div class="nav"><a href="index.html">&larr; All states</a></div>
 
