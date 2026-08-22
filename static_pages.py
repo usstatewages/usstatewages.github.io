@@ -3,10 +3,10 @@ Static pages required for AdSense review (privacy policy / about / contact), plu
 theme parts (style/header/footer/GA+AdSense snippet), mirroring the us-paycheck-calculator /
 krcalctools project structure (see site-deployment-handoff.md).
 
-TODO before going live: replace GA_SNIPPET's G-XXXXXXXXXX and ADSENSE_CLIENT's ca-pub-XXXX
-with real IDs once this site's own GA4 property and AdSense site are created (they must be
-new registrations - this is a separate site/domain from uspaycheckcalc), add the Search
-Console / Naver verification meta tags once those properties are created, and replace
+GA4 is wired in (property "usstatewages" under the same GA account as the other sites,
+measurement ID G-RGNKRT8FK4). TODO before going live: replace ADSENSE_CLIENT's ca-pub-XXXX
+once this site's AdSense site is created (separate registration from uspaycheckcalc), add the
+Search Console / Naver verification meta tags once those properties are created, and replace
 CONTACT_EMAIL with a real contact address.
 """
 
@@ -16,12 +16,12 @@ CONTACT_EMAIL = "contact@yourdomain.com"
 ADSENSE_CLIENT = "ca-pub-XXXXXXXXXXXXXXXX"
 
 GA_SNIPPET = f"""<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RGNKRT8FK4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  gtag('config', 'G-RGNKRT8FK4');
 </script>
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}"
