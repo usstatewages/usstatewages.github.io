@@ -26,9 +26,22 @@ states where secondary sources disagree on whether post-2026 indexing actually s
 legislation - re-add only after confirming directly with the state's labor department.
 
 FULL_TIME_HOURS - standard 40hr/week x 52 weeks, used to show annual gross at each rate.
+
+Optional per-state fields:
+  "announcement"   - (ISO date, short text) for the hub's "Latest announcements" list. Use the
+                     date of the official release or law, never a news write-up's date.
+  "expected"       - pending states only: when the state published last year / must publish by
+                     statute. Only add it when that date was checked against the state's own site.
+  "expected_short" - pending states with a hard statutory deadline, used in the page title.
+
+DATA_CHECKED - the date every status below was last re-checked against each state's own labor
+department / governor release. Bump it whenever you re-verify, not just when a number changes -
+it's shown on every page as "Last checked".
 """
 
 FULL_TIME_HOURS = 2080
+
+DATA_CHECKED = "2026-09-22"
 
 STATES = {
     "california": {
@@ -39,6 +52,7 @@ STATES = {
         "mechanism": "Annual inflation adjustment (CPI, July-June fiscal-year window)",
         "source_name": "California Dept. of Industrial Relations",
         "source_url": "https://www.dir.ca.gov/DIRNews/2026/2026-66.html",
+        "announcement": ("2026-07-31", "California announced $17.40"),
     },
     "michigan": {
         "name": "Michigan",
@@ -66,42 +80,50 @@ STATES = {
         "mechanism": "Annual inflation adjustment (Proposition 206, 2016)",
         "source_name": "U.S. Dept. of Labor state minimum wage table",
         "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "expected": 'Last year the Industrial Commission of Arizona announced the new rate in October.',
     },
     "colorado": {
         "name": "Colorado",
         "current_2026": 15.16,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Annual inflation adjustment (Amendment 70, 2016)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "status": "confirmed",
+        "new_2027": 15.71,
+        "mechanism": "Annual inflation adjustment required by the Colorado constitution, based on the CPI-W",
+        "source_name": "Colorado Department of Labor and Employment",
+        "source_url": "https://cdle.colorado.gov/press-releases/press-release-colorado-minimum-wage-will-increase-to-1571/hour-in-2027",
+        "note": "Tipped workers: $12.69/hr. Denver's local minimum wage will be $19.84 in 2027; other cities with their own minimum wage set it by local ordinance.",
+        "announcement": ("2026-08-13", "Colorado announced $15.71"),
     },
     "connecticut": {
         "name": "Connecticut",
         "current_2026": 16.94,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Annual inflation adjustment (employment cost index)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "status": "confirmed",
+        "new_2027": 17.48,
+        "mechanism": "Annual adjustment tied to the U.S. employment cost index for the 12 months ending June 30",
+        "source_name": "Office of the Governor of Connecticut",
+        "source_url": "https://portal.ct.gov/governor/news/press-releases/2026/08-2026/governor-lamont-announces-minimum-wage-will-increase",
+        "announcement": ("2026-08-05", "Connecticut announced $17.48"),
     },
     "maine": {
         "name": "Maine",
         "current_2026": 15.10,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Annual inflation adjustment (set formula)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "status": "confirmed",
+        "new_2027": 15.70,
+        "mechanism": "Annual cost-of-living adjustment based on the change in the CPI-W from August to August",
+        "source_name": "Maine Department of Labor",
+        "source_url": "https://www.maine.gov/labor/news_events/article.shtml?id=13362373",
+        "note": "Tipped service employees must be paid a direct wage of at least $7.85/hr in 2027.",
+        "announcement": ("2026-09-18", "Maine announced $15.70"),
     },
     "minnesota": {
         "name": "Minnesota",
         "current_2026": 11.41,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Annual inflation adjustment (set formula)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "status": "confirmed",
+        "new_2027": 11.87,
+        "mechanism": "Annual inflation adjustment calculated by the Minnesota Department of Labor and Industry",
+        "source_name": "Minnesota Department of Labor and Industry",
+        "source_url": "https://dli.mn.gov/news/minimum-wage-rate-adjusted-inflation-jan-1-2027",
+        "note": "The 90-day training wage for workers under age 20 rises to $9.68/hr.",
+        "announcement": ("2026-08-19", "Minnesota announced $11.87"),
     },
     "montana": {
         "name": "Montana",
@@ -112,15 +134,18 @@ STATES = {
         "source_name": "U.S. Dept. of Labor state minimum wage table",
         "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
         "note": "Rate shown is for businesses with gross annual sales above $110,000; smaller non-FLSA-covered businesses have a separate, lower rate.",
+        "expected": 'The Department of Labor & Industry sets the new rate no later than September 30 each year.',
+        "expected_short": 'by September 30',
     },
     "nebraska": {
         "name": "Nebraska",
         "current_2026": 15.00,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Inflation-indexed formula begins in 2027 (2022 ballot measure, final fixed step reached in 2026)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "status": "confirmed",
+        "new_2027": 15.26,
+        "mechanism": "Fixed 1.75% increase every January 1 starting in 2027, under LB 258 (in effect since July 17, 2026), which replaced the 2022 ballot measure's inflation formula ($15.00 x 1.0175 = $15.2625, rounded to $15.26)",
+        "source_name": "Nebraska Department of Labor",
+        "source_url": "https://dol.nebraska.gov/webdocs/getfile/18bc2309-85ed-4957-b072-e899caeaca99",
+        "announcement": ("2026-07-17", "Nebraska's LB 258 took effect, fixing 2027 at $15.26"),
     },
     "new-jersey": {
         "name": "New Jersey",
@@ -130,6 +155,7 @@ STATES = {
         "mechanism": "Annual inflation adjustment (set formula)",
         "source_name": "U.S. Dept. of Labor state minimum wage table",
         "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "expected": 'Last year New Jersey announced the new rate on October 1.',
     },
     "new-york": {
         "name": "New York",
@@ -159,6 +185,7 @@ STATES = {
         "mechanism": "Annual inflation adjustment (set formula)",
         "source_name": "U.S. Dept. of Labor state minimum wage table",
         "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "expected": 'Last year South Dakota announced the new rate on October 23.',
     },
     "vermont": {
         "name": "Vermont",
@@ -172,11 +199,13 @@ STATES = {
     "virginia": {
         "name": "Virginia",
         "current_2026": 12.77,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Annual inflation adjustment (set formula)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "status": "confirmed",
+        "new_2027": 13.75,
+        "mechanism": "Legislated step increase (HB 1 / SB 1, signed April 9, 2026)",
+        "source_name": "Office of the Governor of Virginia",
+        "source_url": "https://www.governor.virginia.gov/newsroom/news-releases/2026/april-releases/name-1116004-en.html",
+        "note": "The same law raises Virginia's minimum wage to $15.00 on January 1, 2028, with annual inflation adjustments starting in 2029.",
+        "announcement": ("2026-04-09", "Virginia's governor signed a law setting $13.75"),
     },
     "washington": {
         "name": "Washington",
@@ -186,6 +215,8 @@ STATES = {
         "mechanism": "Annual inflation adjustment (set formula)",
         "source_name": "U.S. Dept. of Labor state minimum wage table",
         "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "expected": 'L&I publishes the new rate by September 30 each year.',
+        "expected_short": 'by September 30',
     },
 }
 

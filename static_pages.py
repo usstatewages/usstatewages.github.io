@@ -10,8 +10,12 @@ was added as a new site under the existing account, no new registration needed).
 pending AdSense's review after the code snippet went live.
 """
 
+import html
+import json
+
 SITE_NAME = "US State Minimum Wage Tracker"
 CONTACT_EMAIL = "usstatewages@gmail.com"
+BASE_URL = "https://usstatewages.github.io"
 
 ADSENSE_CLIENT = "ca-pub-5607384951754093"
 
@@ -26,6 +30,29 @@ GA_SNIPPET = f"""<!-- Google tag (gtag.js) -->
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}"
      crossorigin="anonymous"></script>"""
+
+
+def page_url(filename):
+    """The home page is canonical at the root URL, not /index.html (avoids a duplicate URL)."""
+    return f"{BASE_URL}/" if filename == "index.html" else f"{BASE_URL}/{filename}"
+
+
+def seo_meta(filename, title, desc, json_ld=None):
+    """canonical + Open Graph/Twitter preview tags, plus optional JSON-LD structured data."""
+    url = page_url(filename)
+    t, d = html.escape(title), html.escape(desc)
+    tags = f"""<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="{SITE_NAME}">
+<meta property="og:title" content="{t}">
+<meta property="og:description" content="{d}">
+<meta property="og:url" content="{url}">
+<meta name="twitter:card" content="summary">"""
+    for block in json_ld or []:
+        tags += f'\n<script type="application/ld+json">{json.dumps(block, ensure_ascii=False)}</script>'
+    return tags
+
 
 FOOTER_NAV = """
   <div class="footer-nav">
@@ -140,6 +167,12 @@ SITE_STYLE = """
   }
   .division-list li a:hover { border-color: var(--primary); color: var(--primary); }
 
+  .updated { font-size: 12px; color: var(--muted); margin: 0 0 14px; }
+  .news-list { list-style: none; padding: 0; margin: 10px 0 18px; font-size: 14px; }
+  .news-list li { padding: 7px 0; border-bottom: 1px solid var(--border); }
+  .news-date { display: inline-block; min-width: 92px; color: var(--muted); font-size: 12px; }
+  .division-list li a small { display: block; color: var(--muted); font-size: 12px; }
+
   .footer-nav {
     margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--border);
     font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px;
@@ -149,16 +182,19 @@ SITE_STYLE = """
 """
 
 
-def page_shell(title, description, body, extra_head=""):
+def page_shell(title, description, body, extra_head="", filename=None, json_ld=None):
+    """filename: the page's output file - adds canonical/OG tags pointing at its public URL."""
+    seo = seo_meta(filename, title, description, json_ld) if filename else ""
     return f"""<!doctype html>
 <html lang="en">
 <head>
 {GA_SNIPPET}
 <meta charset="utf-8">
-<title>{title}</title>
-<meta name="description" content="{description}">
+<title>{html.escape(title)}</title>
+<meta name="description" content="{html.escape(description)}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {FAVICON}
+{seo}
 {extra_head}
 <style>{SITE_STYLE}</style>
 </head>
@@ -196,6 +232,7 @@ def about_html():
   <p>This site is for general information and planning purposes only. For payroll compliance,
   confirm the exact current rate with your state's labor department or a licensed professional.</p>
 """,
+        filename="about.html",
     )
 
 
@@ -229,6 +266,7 @@ def privacy_html():
   <h2>5. Effective Date</h2>
   <p>This policy is effective as of August 22, 2026.</p>
 """,
+        filename="privacy.html",
     )
 
 
@@ -241,4 +279,5 @@ def contact_html():
   <p>Questions, corrections, or advertising/partnership inquiries can be sent to the email below.</p>
   <p><a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p>
 """,
+        filename="contact.html",
     )
