@@ -87,7 +87,9 @@ MAP_GAP = 4
 MAP_PITCH = MAP_TILE + MAP_GAP
 MAP_CONFIRMED_COLOR = "#16a34a"
 MAP_PENDING_COLOR = "#d97706"
-MAP_UNTRACKED_COLOR = "#e2e5eb"
+# Untracked tiles sit on the dark page as recessed blocks rather than the light-grey ones the
+# original white layout used.
+MAP_UNTRACKED_COLOR = "#232a36"
 
 
 def us_map_svg():
@@ -101,7 +103,7 @@ def us_map_svg():
             status_label = "confirmed 2027 rate" if state["status"] == "confirmed" else "increase expected, rate pending"
             open_tag, close_tag = f'<a href="{detail_slug(key)}">', "</a>"
         else:
-            fill, text_fill = MAP_UNTRACKED_COLOR, "#6b7280"
+            fill, text_fill = MAP_UNTRACKED_COLOR, "#8b94a3"
             status_label = "no January 2027 increase expected"
             open_tag, close_tag = "", ""
 
