@@ -41,7 +41,7 @@ it's shown on every page as "Last checked".
 
 FULL_TIME_HOURS = 2080
 
-DATA_CHECKED = "2026-09-22"
+DATA_CHECKED = "2026-10-28"
 
 STATES = {
     "california": {
@@ -80,7 +80,7 @@ STATES = {
         "mechanism": "Annual inflation adjustment (Proposition 206, 2016)",
         "source_name": "U.S. Dept. of Labor state minimum wage table",
         "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
-        "expected": 'Last year the Industrial Commission of Arizona announced the new rate in October.',
+        "expected": 'The Industrial Commission of Arizona publishes the new rate on its yearly minimum wage poster in the fall.',
     },
     "colorado": {
         "name": "Colorado",
@@ -128,14 +128,12 @@ STATES = {
     "montana": {
         "name": "Montana",
         "current_2026": 10.85,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Annual inflation adjustment (set formula)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
-        "note": "Rate shown is for businesses with gross annual sales above $110,000; smaller non-FLSA-covered businesses have a separate, lower rate.",
-        "expected": 'The Department of Labor & Industry sets the new rate no later than September 30 each year.',
-        "expected_short": 'by September 30',
+        "status": "confirmed",
+        "new_2027": 11.20,
+        "mechanism": "Annual cost-of-living adjustment based on the August-to-August change in the Consumer Price Index, set by the Department of Labor & Industry by September 30",
+        "source_name": "Montana Department of Labor & Industry",
+        "source_url": "https://erd.dli.mt.gov/labor-standards/wage-and-hour-payment-act/state-minimum-wage",
+        "note": "Rate shown is for businesses with gross annual sales above $110,000. A business not covered by the federal FLSA with sales of $110,000 or less may pay $4.00/hr.",
     },
     "nebraska": {
         "name": "Nebraska",
@@ -150,51 +148,54 @@ STATES = {
     "new-jersey": {
         "name": "New Jersey",
         "current_2026": 15.92,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Annual inflation adjustment (set formula)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
-        "expected": 'Last year New Jersey announced the new rate on October 1.',
+        "status": "confirmed",
+        "new_2027": 16.48,
+        "mechanism": "Annual inflation adjustment required by the New Jersey constitution, based on the CPI-W",
+        "source_name": "New Jersey Department of Labor and Workforce Development",
+        "source_url": "https://www.nj.gov/labor/lwdhome/press/2026/20260929_min_wage.shtml",
+        "note": "Seasonal employers and employers with fewer than six employees: $16.25/hr. Hourly and piece-rate farm workers: $15.00/hr. Long-term care direct care staff: $19.48/hr.",
+        "announcement": ("2026-09-29", "New Jersey announced $16.48"),
     },
     "new-york": {
         "name": "New York",
         "current_2026": 17.00,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Switches from a legislated schedule to annual CPI-W (Northeast) indexing starting January 2027",
+        "status": "confirmed",
+        "new_2027": 17.00,
+        "mechanism": "Annual CPI-W indexing was due to start in 2027, but the law's economic off-ramp skips the increase when one of its conditions is met, and one was met for 2027",
         "source_name": "Office of the Governor of New York",
-        "source_url": "https://www.governor.ny.gov/news/money-your-pockets-governor-hochul-reminds-new-yorkers-minimum-wage-increase-january-1",
-        "note": "$17.00 applies to New York City, Long Island, and Westchester County; the rest of the state is at $16.00 and rises on the same schedule.",
+        "source_url": "https://governor.ny.gov/new-york-state-minimum-wage-2027",
+        "note": "$17.00 applies to New York City, Long Island, and Westchester County; the rest of the state stays at $16.00. Home care aides are on a separate schedule and do get a raise on January 1, 2027: $20.00/hr downstate and $19.00/hr in the rest of the state. Governor Hochul has proposed changing the off-ramp so an inflation increase could start March 1, 2027; that needs the legislature, which returns in January.",
+        "announcement": ("2026-10-01", "New York confirmed no January 2027 increase"),
     },
     "ohio": {
         "name": "Ohio",
         "current_2026": 11.00,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Annual inflation adjustment (set formula)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
-        "note": "Rate shown is for employers with annual gross receipts of $405,000 or more; smaller employers follow the $7.25 federal rate.",
+        "status": "confirmed",
+        "new_2027": 11.40,
+        "mechanism": "Annual inflation adjustment required by Article II, Section 34a of the Ohio constitution, based on the CPI-W for the 12 months ending in August",
+        "source_name": "Ohio Department of Commerce 2027 minimum wage poster",
+        "source_url": "https://dam.assets.ohio.gov/image/upload/com.ohio.gov/DICO/WageAndHour/2027_Minumum_Wage_Poster.pdf",
+        "note": "Employers grossing less than $419,000 a year, and employees under age 16, follow the $7.25 federal rate instead.",
+        "announcement": ("2026-09-30", "Ohio announced $11.40"),
     },
     "south-dakota": {
         "name": "South Dakota",
         "current_2026": 11.85,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Annual inflation adjustment (set formula)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
-        "expected": 'Last year South Dakota announced the new rate on October 23.',
+        "status": "confirmed",
+        "new_2027": 12.30,
+        "mechanism": "Annual inflation adjustment under the 2014 ballot measure, based on the CPI-W",
+        "source_name": "South Dakota Department of Labor and Regulation",
+        "source_url": "https://dlr.sd.gov/employment_laws/minimum_wage.aspx",
     },
     "vermont": {
         "name": "Vermont",
         "current_2026": 14.42,
         "status": "pending",
         "new_2027": None,
-        "mechanism": "Annual inflation adjustment (set formula)",
+        "mechanism": "Annual increase equal to the lesser of 5% or the CPI-U change for the 12 months before September 1 (21 V.S.A. 384), so the 2027 raise can't exceed about $0.72",
         "source_name": "U.S. Dept. of Labor state minimum wage table",
         "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+        "expected": 'Last year the Vermont Department of Labor announced the new rate on October 6.',
     },
     "virginia": {
         "name": "Virginia",
@@ -210,13 +211,13 @@ STATES = {
     "washington": {
         "name": "Washington",
         "current_2026": 17.13,
-        "status": "pending",
-        "new_2027": None,
-        "mechanism": "Annual inflation adjustment (set formula)",
-        "source_name": "U.S. Dept. of Labor state minimum wage table",
-        "source_url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
-        "expected": 'L&I publishes the new rate by September 30 each year.',
-        "expected_short": 'by September 30',
+        "status": "confirmed",
+        "new_2027": 17.73,
+        "mechanism": "Annual inflation adjustment based on the August-to-August change in the CPI-W, calculated by the Department of Labor & Industries",
+        "source_name": "Washington Department of Labor & Industries",
+        "source_url": "https://www.lni.wa.gov/news-events/article/26-17",
+        "note": "Workers aged 14 and 15 may be paid $15.07/hr in 2027. The salary threshold for overtime-exempt workers rises to $1,773.00/week at employers with 51+ workers and $1,595.70/week at smaller ones.",
+        "announcement": ("2026-09-30", "Washington announced $17.73"),
     },
 }
 
@@ -225,6 +226,78 @@ STATE_ORDER = [
     "rhode-island", "colorado", "virginia", "arizona", "ohio", "maine", "vermont",
     "nebraska", "minnesota", "montana", "south-dakota",
 ]
+
+"""
+Tipped workers, January 1, 2027. "cash" is the lowest direct hourly wage an employer may pay
+before tips, or None while the state hasn't published it (or doesn't set one statewide). States
+with no tip credit pay the full minimum wage, so their "cash" equals new_2027.
+
+Checked 2026-10-28. Fixed-dollar cash wages (RI, VA, NE, CT) come from the U.S. DOL tipped-wage
+table (as of July 1, 2026) - those states set the amount in statute rather than as a share of the
+minimum wage, so a higher minimum wage doesn't move them. Percentage-based ones (ME, SD 50%;
+MI 42% in 2027) are worked out from the confirmed 2027 rate and match each agency's figure.
+Same rule as STATES: never fill "cash" for a state whose 2027 base rate is still pending.
+"""
+TIPPED_2027 = {
+    "california": {"cash": 17.40, "rule": "California does not allow a tip credit. Tipped workers must be paid the full state minimum wage, and tips go on top."},
+    "washington": {"cash": 17.73, "rule": "Washington does not allow a tip credit. Tipped workers must be paid the full state minimum wage, and tips go on top."},
+    "minnesota": {"cash": 11.87, "rule": "Minnesota does not allow a tip credit. Tipped workers must be paid the full state minimum wage, and tips go on top."},
+    "montana": {"cash": 11.20, "rule": "Montana does not allow a tip credit for businesses that pay the standard rate. Tipped workers get the full state minimum wage, and tips go on top."},
+    "colorado": {"cash": 12.69, "rule": "Colorado lets employers count up to $3.02/hr of tips toward the minimum wage."},
+    "maine": {"cash": 7.85, "rule": "Maine's tipped cash wage is 50% of the state minimum wage. If tips don't make up the rest, the employer must."},
+    "south-dakota": {"cash": 6.15, "rule": "South Dakota's tipped cash wage is half of the state minimum wage."},
+    "michigan": {"cash": 6.30, "rule": "Under Michigan's 2025 law, the tipped cash wage is 42% of the minimum wage in 2027, rising 2 points a year until it reaches 50% in 2031."},
+    "new-jersey": {"cash": 6.61, "rule": "New Jersey's tipped cash wage rises with the minimum wage; the maximum tip credit stays at $9.87."},
+    "ohio": {"cash": 5.70, "rule": "Ohio's tipped cash wage is half of the state minimum wage for employers grossing $419,000 or more."},
+    "connecticut": {"cash": 6.38, "rule": "Connecticut sets fixed cash wages in law: $6.38/hr for hotel and restaurant servers and $8.23/hr for bartenders. They don't rise with the minimum wage, so the tip credit grows instead."},
+    "rhode-island": {"cash": 3.89, "rule": "Rhode Island's tipped cash wage is fixed at $3.89/hr in law. It does not rise with the minimum wage, so the tip credit grows to $13.11."},
+    "virginia": {"cash": 2.13, "rule": "Virginia uses the federal $2.13/hr tipped cash wage, which doesn't rise with the state minimum wage. The tip credit grows to $11.62."},
+    "nebraska": {"cash": 2.13, "rule": "Nebraska's tipped cash wage is fixed at $2.13/hr and did not change with the 2022 ballot measure or LB 258."},
+    "arizona": {"cash": None, "rule": "Arizona lets employers count up to $3.00/hr of tips, so the tipped cash wage will be $3.00 below whatever the 2027 rate turns out to be."},
+    "vermont": {"cash": None, "rule": "Vermont's tipped cash wage is half of the state minimum wage, so it will be set when the 2027 rate is announced."},
+    "new-york": {"cash": None, "rule": "New York sets tipped cash wages by industry and region in its wage orders. Because the base rate isn't rising on January 1, 2027, the tipped rates tied to it stay where they are."},
+}
+
+TIPPED_SOURCE = ("U.S. Dept. of Labor tipped minimum wage table", "https://www.dol.gov/agencies/whd/state/minimum-wage/tipped")
+
+"""
+Cities and counties with their own, higher minimum wage on January 1, 2027. Only places whose
+2027 rate was published by the city, or by an employer-compliance source that agrees with it,
+as of 2026-10-28. Places with a local ordinance but no published 2027 rate go in LOCAL_PENDING
+by name only - same no-guessing rule as STATES (e.g. Flagstaff, where sources disagree).
+"""
+LOCAL_2027 = {
+    "washington": [
+        ("Seattle", 22.14, "All employers. Announced by the Seattle Office of Labor Standards on September 28, 2026.",
+         "https://content.govdelivery.com/accounts/WASEATTLE/bulletins/42cb5b8"),
+    ],
+    "colorado": [
+        ("Denver", 19.84, "Up 2.9% from 2026.", "https://cdle.colorado.gov/press-releases/press-release-colorado-minimum-wage-will-increase-to-1571/hour-in-2027"),
+        ("Boulder (city)", 18.17, "City of Boulder ordinance.", "https://www.experian.com/blogs/employer-services/2027-state-by-state-local-minimum-wage-changes-and-posting-updates/"),
+    ],
+    "minnesota": [
+        ("Minneapolis", 17.02, "All employers, regardless of size or worker age.", "https://www.experian.com/blogs/employer-services/2027-state-by-state-local-minimum-wage-changes-and-posting-updates/"),
+        ("Saint Paul (101+ employees)", 17.02, "Employers with 6-100 workers stay at $16.37 until July 1, 2027, then rise to $17.02. Employers with 5 or fewer stay at $14.25, then rise to $15.00 on July 1, 2027.",
+         "https://stpaul.gov/news/announcing-city-saint-paul-minimum-wage-rates-2027"),
+    ],
+    "california": [
+        ("West Hollywood", 20.94, "Non-hotel employees; hotel workers have a separate rate that changes July 1.", "https://www.experian.com/blogs/employer-services/2027-state-by-state-local-minimum-wage-changes-and-posting-updates/"),
+        ("Palo Alto", 19.25, "", "https://www.experian.com/blogs/employer-services/2027-state-by-state-local-minimum-wage-changes-and-posting-updates/"),
+        ("Santa Clara", 19.25, "", "https://www.experian.com/blogs/employer-services/2027-state-by-state-local-minimum-wage-changes-and-posting-updates/"),
+        ("Petaluma", 18.93, "Workers aged 14-17 may be paid a learner's wage of $16.10 for their first 160 hours.", "https://www.experian.com/blogs/employer-services/2027-state-by-state-local-minimum-wage-changes-and-posting-updates/"),
+        ("Burlingame", 18.47, "", "https://www.experian.com/blogs/employer-services/2027-state-by-state-local-minimum-wage-changes-and-posting-updates/"),
+        ("Hayward (26+ employees)", 18.39, "Employers with 25 or fewer workers: $17.40, the state rate.", "https://www.experian.com/blogs/employer-services/2027-state-by-state-local-minimum-wage-changes-and-posting-updates/"),
+        ("San Diego", 18.35, "", "https://www.experian.com/blogs/employer-services/2027-state-by-state-local-minimum-wage-changes-and-posting-updates/"),
+    ],
+}
+
+LOCAL_PENDING = {
+    "washington": "SeaTac, Tukwila, Renton, Bellingham, Everett, Burien, and unincorporated King County also set higher local rates.",
+    "colorado": "Edgewater and unincorporated Boulder County also have local minimum wage ordinances; their 2027 rates hadn't been finalized in official sources when this page was last checked.",
+    "arizona": "Flagstaff and Tucson set their own, higher minimum wages, which also change on January 1.",
+    "california": "More than 30 other California cities and counties have their own minimum wage, and most adjust on January 1. Los Angeles, San Francisco, and Berkeley adjust on July 1 instead.",
+    "maine": "Portland, Maine sets its own minimum wage by city ordinance.",
+}
 
 """
 5-year rate history (2022-2026), January 1 rate each year, main/standard tier.

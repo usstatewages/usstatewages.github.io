@@ -4,83 +4,91 @@
   "sha256": "3cbefc51b05fe480c92f63eaa247f684ff69c34cb5f7514103823a61fefb2f10"
  },
  "arizona-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "e89e9e563d53f41e5de827c4f112d72fa5949e3958ab8d4ed2f512a4611589bf"
+  "lastmod": "2026-10-28",
+  "sha256": "51035f789954b4618993484ccc10db29aa56ab7c773c5dbf415f8934be643dba"
  },
  "california-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "c3546aae2a93926be0da3ba61190ade9dab8c001fdf962ae2d44b4d0881a4169"
+  "lastmod": "2026-10-28",
+  "sha256": "a3dbc13ed54086898f1c97eea5f038f41a590aeb56fba305c79959bdc1f6bd74"
+ },
+ "city-minimum-wage-2027.html": {
+  "lastmod": "2026-10-28",
+  "sha256": "e4da5f26a291058f04e1724ea0e337980451e2897a2ed901dc5078a7063e9b61"
  },
  "colorado-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "ce5e21f8ad5d23fd4a6b3e975d2860d2dd7e1b0e8d2152e33c46f43a5bcee079"
+  "lastmod": "2026-10-28",
+  "sha256": "7aa765ce170180ccd39846e10ee76b1024057a3df82ea5822cb9a0cbf2723915"
  },
  "connecticut-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "2e683587f81dfff350697e80e67dfec766e7b47033a2194bfd65ae448cd5721d"
+  "lastmod": "2026-10-28",
+  "sha256": "cc1fbde20c558972961445bd798c2f40daf49a23c3e125b94892741947edd2d0"
  },
  "contact.html": {
   "lastmod": "2026-10-09",
   "sha256": "64174333dfb5eb485fe451e9aa14bc7a4d94928ee6ae5a3feb465a322e1d3184"
  },
  "index.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "d35678dd01b30d2def2752f975327916bb47b296643093c67e731c12d07a6007"
+  "lastmod": "2026-10-28",
+  "sha256": "a92205514e6c4772b7218273594278eb24ebb762c90e3d1d2eeba3c8ca70b1c1"
  },
  "maine-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "b0f97256e1dc51a75107e872fecad26ee384fbd8aca39b088f921bf2ada7a76a"
+  "lastmod": "2026-10-28",
+  "sha256": "c394fbdf436e1ff824aadaf5586546b8801bdf0e816a0fc35d39d9374e077837"
  },
  "michigan-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "5d9f4b37532713b7a4ef5c0268e12cd17dc605969a3752cf1ffe6883694a0504"
+  "lastmod": "2026-10-28",
+  "sha256": "4c564ad3d4634df18650d763615b25216b4f5c9239527a4e25e5bf4ea93fc7f9"
  },
  "minnesota-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "a0c5f93ba565e548fce9a76a1a19513b228647fa1ba6434fc8e22d3eb7b768ca"
+  "lastmod": "2026-10-28",
+  "sha256": "6f1e531d721de8a6b8ddd5f77e2249f32874f170c31ed7d9fa481f6b18d07329"
  },
  "montana-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "1965e8de33d1f718b3687ae22b40507e67f7e385abc2f2eb617ef5267abfb54f"
+  "lastmod": "2026-10-28",
+  "sha256": "4d54ee2a55aac5011fb56fb03c039240964f0070adbf60fac4be1fe47e3dadff"
  },
  "nebraska-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "5c7cc409247e34892702296bd4e686bca0e65d8ec79999edcba204a33b4d8091"
+  "lastmod": "2026-10-28",
+  "sha256": "1cfc2a4904be7057f5018fca2334d171d96d090fda8830d0940410d4624b6be6"
  },
  "new-jersey-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "b1e125b79e57ed719ecb07823b289485fb39c1dd8c45ae82c05957a8d572668c"
+  "lastmod": "2026-10-28",
+  "sha256": "1d499182c0d4c0fb1c755d9359e304631b10a90c47435914fcd1feac18815f64"
  },
  "new-york-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "a985718144f75bc5f1f9435397da3cf7fb6a49eafc79028a9eb8b397d02a35e3"
+  "lastmod": "2026-10-28",
+  "sha256": "d7aad09ab0204bb3d2c5db90db725fd111e4f96368be2be54f60a883519f38a7"
  },
  "ohio-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "1d65f17da0c8f76dd92bbe1ae3d0511c2aa3617d220107fccca2c36b8560ae25"
+  "lastmod": "2026-10-28",
+  "sha256": "5fc4f347ffcb99d2eaedd6b77650d0c4053409b28fbac0ec8550ee47aee5511b"
  },
  "privacy.html": {
   "lastmod": "2026-10-09",
   "sha256": "7f518948e452ad5ec9abfb3d6fa54ceefb28e42225770afe353e8d3a6f6ba86a"
  },
  "rhode-island-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "b0ca8255b817a6d41df28e5e11ec7ac546781304014d53f4c93f947664057bda"
+  "lastmod": "2026-10-28",
+  "sha256": "f82bc206bf790d38c10775d1ab57eb932012b0b0115f394b28047b3d6eb24a7b"
  },
  "south-dakota-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "b7ebdf405c7ea1964585359203cb7bde1827a273652db56b8d67f70063f1dcae"
+  "lastmod": "2026-10-28",
+  "sha256": "7829e6784fc05bc907820a067f5fbcc3b916fcd1f67c9c5f985cf85ceb54c57f"
+ },
+ "tipped-minimum-wage-2027.html": {
+  "lastmod": "2026-10-28",
+  "sha256": "ad6d0070b8a2bef607dc04c72c9b853bd26bdfe38397cfef5ef741b3d798cec1"
  },
  "vermont-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "b439d83c0c74fcc6cf9b7c9232428f7c07be6b59d11801a602598c04b0e435a8"
+  "lastmod": "2026-10-28",
+  "sha256": "056a15b44a27428708e61f969bf54f2aad6df5b94b7d5c93d708b1cded8d1604"
  },
  "virginia-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "e55e4ceffd0f4ee908f0b66d8b4c0291ba3787e1fc38d7ba38f58996581f9e91"
+  "lastmod": "2026-10-28",
+  "sha256": "c766d529d4ee3ff07f5f023de234dffde12589a15126aae7bdd0f2266583ba39"
  },
  "washington-minimum-wage.html": {
-  "lastmod": "2026-10-09",
-  "sha256": "4282311e3b3eca7b380aa9e27bf2cb087519bb1e438b50ea629d72ce44906231"
+  "lastmod": "2026-10-28",
+  "sha256": "e3979bd43725d7b3edb009bc77bd4af0d501acef6a860773e3ff693d6c1ab39f"
  }
 }
